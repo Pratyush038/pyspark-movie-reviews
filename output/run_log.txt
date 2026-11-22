@@ -1,0 +1,53 @@
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[Stage 25:>                                                         (0 + 1) / 1]                                                                                
+=== Schema ===
+root
+ |-- review: string (nullable = true)
+ |-- sentiment: string (nullable = true)
+=== First 5 rows ===
++--------------------------------------------------------------------------------+---------+
+|                                                                          review|sentiment|
++--------------------------------------------------------------------------------+---------+
+|One of the other reviewers has mentioned that after watching just 1 Oz episod...| positive|
+|A wonderful little production. <br /><br />The filming technique is very unas...| positive|
+|I thought this was a wonderful way to spend time on a too hot summer weekend,...| positive|
+|Basically there's a family where a little boy (Jake) thinks there's a zombie ...| negative|
+|Petter Mattei's "Love in the Time of Money" is a visually stunning film to wa...| positive|
++--------------------------------------------------------------------------------+---------+
+only showing top 5 rows
+Rows before cleaning: 50000
+=== Total reviews after cleaning: 50000 ===
+=== Sentiment counts ===
++---------+-----+
+|sentiment|count|
++---------+-----+
+| positive|25000|
+| negative|25000|
++---------+-----+
+Positive: 25000 | Negative: 25000
+=== Review length (characters) by sentiment ===
++---------+----------+-------+-------+
+|sentiment|   avg_len|min_len|max_len|
++---------+----------+-------+-------+
+| positive|1324.79768|     65|  13704|
+| negative|1294.06436|     32|   8969|
++---------+----------+-------+-------+
+=== Reviews longer than 500 characters: 45017 ===
++-------------+---------+--------------------------------------------------------------------------------+
+|review_length|sentiment|                                                                          review|
++-------------+---------+--------------------------------------------------------------------------------+
+|         1761| positive|One of the other reviewers has mentioned that after watching just 1 Oz episod...|
+|          998| positive|A wonderful little production. <br /><br />The filming technique is very unas...|
+|          926| positive|I thought this was a wonderful way to spend time on a too hot summer weekend,...|
+|          748| negative|Basically there's a family where a little boy (Jake) thinks there's a zombie ...|
+|         1317| positive|Petter Mattei's "Love in the Time of Money" is a visually stunning film to wa...|
+|          656| positive|Probably my all-time favorite movie, a story of selflessness, sacrifice and d...|
+|          726| positive|I sure would like to see a resurrection of a up dated Seahunt series with the...|
+|          934| negative|This show was an amazing, fresh & innovative idea in the 70's when it first a...|
+|          681| negative|Encouraged by the positive comments about this film on here I was looking for...|
+|          578| negative|Phil the Alien is one of those quirky films where the humour is based around ...|
++-------------+---------+--------------------------------------------------------------------------------+
+only showing top 10 rows
+Saved cleaned & transformed data to output/cleaned_reviews/

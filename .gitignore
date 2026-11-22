@@ -1,0 +1,5 @@
+data/
+output/cleaned_reviews/
+__pycache__/
+*.crc
+spark-warehouse/
